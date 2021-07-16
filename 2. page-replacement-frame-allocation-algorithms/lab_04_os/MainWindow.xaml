@@ -1,0 +1,186 @@
+﻿<Window x:Class="lab_04_os.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        
+    Title="MainWindow" Height="450" Width="800"
+    WindowStyle ="None" 
+    ResizeMode="NoResize"
+    Background="Black"
+    >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+
+            </ColumnDefinition>
+
+            <ColumnDefinition>
+
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Grid
+              MouseDown="GridMouseDown"
+              Grid.ColumnSpan="2" Background="#FF292828">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock Text="Disc scheduling "
+                       Foreground="White"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+
+         
+
+               
+           
+
+        </Grid>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.RowSpan="3">
+
+            <StackPanel Orientation="Horizontal" Height="30" Margin="70,60,0,0">
+                <Label
+                    VerticalAlignment="Center" Foreground="Purple" Content="MMU" Background="#f56342"/>
+                <TextBox x:Name="MMU" Width="30" Height="20" Margin="50,0,10,0" VerticalAlignment="Center" TextAlignment="Center"/>
+                <Label Content=" " Height="26" Margin="0,2,0,0" VerticalAlignment="Top" Width="219" Foreground="White"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="30" Margin="70,20,0,0">
+                <Label
+                    VerticalAlignment="Center" Foreground="Purple" Content="Process 1" Background="#f56342"/>
+                <TextBox x:Name="p1" Width="30" Height="20" Margin="30,0,10,0" VerticalAlignment="Center" TextAlignment="Center"/>
+                <CheckBox x:Name="priority1" Content="CheckBox" Height="15" Margin="5,7" VerticalAlignment="Top" Width="16" Checked="priority1_Checked" Unchecked="priority1_Unchecked"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="30" Margin="70,20,0,0">
+                <Label
+                    VerticalAlignment="Center" Foreground="Purple" Content="Process 2" Background="#f56342"/>
+                <TextBox x:Name="p2" Width="30" Height="20" Margin="30,0,10,0" VerticalAlignment="Center" TextAlignment="Center"/>
+                <CheckBox x:Name="priority2" Content="CheckBox" Height="15" Margin="5,7" VerticalAlignment="Top" Width="16" Checked="priority2_Checked" Unchecked="priority2_Unchecked"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="30" Margin="70,20,0,0">
+                <Label
+                    VerticalAlignment="Center" Foreground="purple" Content="Process 3" Background="#f56342"/>
+                <TextBox x:Name="p3" Width="30" Height="20" Margin="30,0,10,0" VerticalAlignment="Center" TextAlignment="Center"/>
+                <CheckBox x:Name="priority3" Content="CheckBox" Height="15" Margin="5,7" VerticalAlignment="Top" Width="16" Checked="priority3_Checked" Unchecked="priority3_Unchecked"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="30" Margin="70,20,0,0">
+                <Label
+                    VerticalAlignment="Center" Foreground="Purple" Content="Process 4" Background="#f56342"/>
+                <TextBox x:Name="p4" Width="30" Height="20" Margin="30,0,10,0" VerticalAlignment="Center" TextAlignment="Center"/>
+                <CheckBox x:Name="priority4" Content="CheckBox" Height="15" Margin="5,7" VerticalAlignment="Top" Width="16" Checked="priority4_Checked" Unchecked="priority4_Unchecked"/>
+            </StackPanel>
+            <Label x:Name="info" Content="Please insert your data" HorizontalAlignment="Left" Height="29" Margin="153,0,0,0" Width="247"/>
+
+
+
+
+
+
+        </StackPanel>
+
+
+
+
+        <StackPanel Grid.Row="4"
+                    Margin="50,0"
+                    Grid.ColumnSpan="1">
+            <StackPanel Orientation="Horizontal" Height="93">
+
+                <Button x:Name="Ready" Content="Ready"
+                        Foreground="Purple"
+                        Margin="10,1,1,1" Click="Ready_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#f56342"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#f56342"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="70" Height="30"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+                <Button x:Name="Reset" Content="Reset"
+                        Foreground="purple"
+                        Margin="20" Click="Reset_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#f56342"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#f56342"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="70" Height="30"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+                
+
+                   
+            
+            </StackPanel>
+        </StackPanel>
+
+        <lvc:PieChart x:Name="WorkingSetPie" Grid.Column="1" HorizontalAlignment="Left" Height="149" Margin="209,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="149" Grid.RowSpan="2"/>
+        <lvc:PieChart x:Name="PageFaultPie" HorizontalAlignment="Left" Height="149" Margin="38,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="149" Grid.RowSpan="2" Grid.Column="1"/>
+        <lvc:PieChart x:Name="ProportionalPie" HorizontalAlignment="Left" Height="149" Margin="38,37,0,0" Grid.Row="3" VerticalAlignment="Top" Width="149" Grid.RowSpan="2" Grid.Column="1"/>
+        <lvc:PieChart x:Name="RandomPie" HorizontalAlignment="Left" Height="149" Margin="209,37,0,0" Grid.Row="3" VerticalAlignment="Top" Width="149" Grid.RowSpan="2" Grid.Column="1"/>
+        <Label x:Name="propLabel" Content="Proportional" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="71,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="116" Foreground="White"/>
+        <Label x:Name="pageFaultLabel" Content="Page fault" HorizontalAlignment="Left" Height="39" Margin="71,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="109" Foreground="White" Grid.Column="1"/>
+        <Label x:Name="workingSetLabel" Content="Working set" HorizontalAlignment="Left" Height="25" Margin="250,13,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
+        <Label x:Name="randomLabel" Content="Random" HorizontalAlignment="Left" Height="25" Margin="259,12,0,0" Grid.Row="3" VerticalAlignment="Top" Width="99" Foreground="White" Grid.Column="1"/>
+    </Grid>
+</Window>
